@@ -3,9 +3,10 @@
 #include "user.h"
 
 char buf[512];
-int lines_read_length = 512;
-int *lines_read = malloc(lines_read_length * sizeof(char));
+
 void reverse_x_lines(int fd, char *name) {
+  int lines_read_length = 512;
+  int *lines_read = malloc(sizeof(char) * lines_read_length);
   int i, n;
   int l, w, c, inword;
 
@@ -25,7 +26,7 @@ void reverse_x_lines(int fd, char *name) {
     }
   }
   if (n < 0) {
-    printf(1, "wc: read error\n");
+    printf(1, "reverse_x_lines: read error\n");
     exit();
   }
   printf(1, "%d %d %d %s\n", l, w, c, name);
