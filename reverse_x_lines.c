@@ -30,7 +30,9 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
     if (curr_lines_read == num_lines) {
         char *reversed_lines = malloc(sizeof(char) * lines_read_size);
         reverse_lines(lines_read, reversed_lines, lines_read_length);
-        print_lines(reversed_lines, lines_read_length);
+        if (check_palindrome(lines_read, lines_read))
+        // print_lines(reversed_lines, lines_read_length);
+        exit();
   }
 
   if (n < 0) {

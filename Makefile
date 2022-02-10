@@ -190,7 +190,7 @@ UPROGS=\
 	_reverse_x_lines\
 
 fs.img: mkfs README.md $(UPROGS)
-	./mkfs fs.img README.md $(UPROGS)
+	./mkfs fs.img README.md test.txt $(UPROGS)
 
 -include *.d
 
