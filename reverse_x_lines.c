@@ -3,7 +3,8 @@
 #include "user.h"
 
 char buf[512];
-
+int lines_read_length = 512;
+int *lines_read = malloc(lines_read_length * sizeof(char));
 void reverse_x_lines(int fd, char *name) {
   int i, n;
   int l, w, c, inword;
