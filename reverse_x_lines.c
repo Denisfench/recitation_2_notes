@@ -4,7 +4,7 @@
 
 char buf[512];
 
-void wc(int fd, char *name) {
+void reverse_x_lines(int fd, char *name) {
   int i, n;
   int l, w, c, inword;
 
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
   int fd, i;
 
   if (argc <= 1) {
-    wc(0, "");
+    reverse_x_lines(0, "");
     exit();
   }
 
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
       printf(1, "wc: cannot open %s\n", argv[i]);
       exit();
     }
-    wc(fd, argv[i]);
+    reverse_x_lines(fd, argv[i]);
     close(fd);
   }
   exit();
