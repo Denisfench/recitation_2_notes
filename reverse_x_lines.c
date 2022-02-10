@@ -18,14 +18,14 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
     for (i = 0; i < n; i++) {
       if (buf[i] == '\n')
         curr_lines_read++;
-        if (curr_lines_read == )
+        // if (curr_lines_read == )
   }
   if (n < 0) {
     printf(1, "reverse_x_lines: read error\n");
     exit();
   }
 }
-  printf(1, "%d\n", curr_lines_read);
+  printf(1, "%d\n", num_lines);
 }
 
 
@@ -35,20 +35,23 @@ int main(int argc, char *argv[]) {
 
   // program name and the number of lines
   if (argc < 2) {
-      
+      printf(1, "is_palindrome: double-check your input \n");
+      exit();
   }
+
+  num_lines = atoi(argv[1]);
   
-  if (argc <= 1) {
-    reverse_x_lines(0, "");
+  if (argc == 2) {
+    reverse_x_lines(0, "", num_lines);
     exit();
   }
 
-  for (i = 1; i < argc; i++) {
+  for (i = 2; i < argc; i++) {
     if ((fd = open(argv[i], 0)) < 0) {
       printf(1, "reverse_x_lines: cannot open %s\n", argv[i]);
       exit();
     }
-    reverse_x_lines(fd, argv[i]);
+    reverse_x_lines(fd, argv[i], num_lines);
     close(fd);
   }
   exit();
