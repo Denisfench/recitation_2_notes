@@ -4,11 +4,12 @@
 
 void reverse_lines(char* lines_read, char* reversed_lines, int lines_length);
 void print_lines(char* lines_to_print, int length);
-
+int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length);
 char buf[512];
 
 // change it to is_palindrome functon
 // check whether x lines form a palindrome 
+// add dynamic memeory allocation 
 void reverse_x_lines(int fd, char *name, int num_lines) {
   int lines_read_size = 512;
   int lines_read_length = 0;
@@ -30,7 +31,9 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
     if (curr_lines_read == num_lines) {
         char *reversed_lines = malloc(sizeof(char) * lines_read_size);
         reverse_lines(lines_read, reversed_lines, lines_read_length);
-        if (check_palindrome(lines_read, lines_read))
+        if (check_palindrome(lines_read, reversed_lines, lines_read_length))
+            printf(1, "Palindrome");
+        else printf(1, "Not a palindrome");
         // print_lines(reversed_lines, lines_read_length);
         exit();
   }
@@ -60,13 +63,22 @@ void print_lines(char* lines_to_print, int length) {
 }
 
 
+int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length) {
+    for (int i = 0; i < lines_read_length; i++) {
+        if (lines_read[i] != reversed_lines[i])
+            return 0;
+    }
+    return 1;
+}
+
+
 int main(int argc, char *argv[]) {
   int fd, i;
   int num_lines;
 
   // program name and the number of lines
   if (argc < 2) {
-      printf(1, "is_palindrome: double-check your input \n");
+      printf(2, "is_palindrome: double-check your input \n");
       exit();
   }
 
@@ -79,7 +91,7 @@ int main(int argc, char *argv[]) {
 
   for (i = 2; i < argc; i++) {
     if ((fd = open(argv[i], 0)) < 0) {
-      printf(1, "reverse_x_lines: cannot open %s\n", argv[i]);
+      printf(2, "reverse_x_lines: cannot open %s\n", argv[i]);
       exit();
     }
     reverse_x_lines(fd, argv[i], num_lines);
