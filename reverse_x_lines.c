@@ -43,6 +43,8 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
             printf(1, "Not a palindrome\n");
         }
         print_lines(reversed_lines, lines_read_length);
+        printf(1, "\\\\\\n");
+        print_lines(lines_read, lines_read_length);
         free(lines_read);
         free(reversed_lines);
         exit();
@@ -77,6 +79,8 @@ int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_leng
     for (int i, j = 0; i < lines_read_length; i++, j++) {
         if (lines_read[i] == '\n') i++;
         if (reversed_lines[j] == '\n') j++;
+        printf(1, "%c", lines_read[i])
+        printf(1, "%c", lines_read[i])
         if (lines_read[i] != reversed_lines[j]) {
             printf(1, "false");
             return 0;
