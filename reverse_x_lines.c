@@ -5,7 +5,8 @@
 char buf[512];
 
 // change it to is_palindrome function
-void reverse_x_lines(int fd, char *name) {
+// check whether x lines form a palindrome 
+void reverse_x_lines(int fd, char *name, int num_lines) {
   int lines_read_length = 512;
   int *lines_read = malloc(sizeof(char) * lines_read_length);
   lines_read = lines_read;
@@ -17,6 +18,7 @@ void reverse_x_lines(int fd, char *name) {
     for (i = 0; i < n; i++) {
       if (buf[i] == '\n')
         curr_lines_read++;
+        if (curr_lines_read == )
   }
   if (n < 0) {
     printf(1, "reverse_x_lines: read error\n");
@@ -29,7 +31,13 @@ void reverse_x_lines(int fd, char *name) {
 
 int main(int argc, char *argv[]) {
   int fd, i;
-  int num_lines_to_reverse
+  int num_lines;
+
+  // program name and the number of lines
+  if (argc < 2) {
+      
+  }
+  
   if (argc <= 1) {
     reverse_x_lines(0, "");
     exit();
