@@ -3,7 +3,7 @@
 #include "user.h"
 
 void reverse_lines(int* lines_read, int* reversed_lines, int lines_length);
-void print_lines(int* lines_to_print);
+void print_lines(int* lines_to_print, int length);
 
 char buf[512];
 
@@ -20,24 +20,26 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
 
   while ((n = read(fd, buf, sizeof(buf))) > 0) {
     for (i = 0; i < n; i++) {
+
       lines_read_length++;
       lines_read[lines_read_length] = buf[i];
+
       if (buf[i] == '\n')
         curr_lines_read++;
-        if (curr_lines_read == num_lines) {
-            int *reversed_lines = malloc(sizeof(char) * lines_read_size);
-            reverse_lines(lines_read, reversed_lines, lines_read_length);
-            print_lines(reversed_lines);
-            for (int i = 0; i < lines_read_length; i++)
-                printf(0, reversed_lines[i]);
-        }
+
+    if (curr_lines_read == num_lines) {
+        int *reversed_lines = malloc(sizeof(char) * lines_read_size);
+        reverse_lines(lines_read, reversed_lines, lines_read_length);
+        print_lines(reversed_lines, lines_read_length);
   }
+  
   if (n < 0) {
     printf(1, "reverse_x_lines: read error\n");
     exit();
   }
 }
   printf(1, "%d\n", num_lines);
+}
 }
 
 
@@ -47,8 +49,10 @@ void reverse_lines(int* lines_read, int* reversed_lines, int lines_length) {
         reversed_lines[j] = lines_read[i];
 }
 
-void print_lines(int* lines_to_print) {
-    printf(1, "%c", lines_to_print[])
+
+void print_lines(int* lines_to_print, int length) {
+    for (int i = 0; i < length; i++)
+        printf(1, "%c", lines_to_print[i]);
 }
 
 
