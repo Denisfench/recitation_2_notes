@@ -2,7 +2,7 @@
 #include "stat.h"
 #include "user.h"
 
-void reverse_lines(int* reversed_lines);
+void reverse_lines(int* lines_read, int* reversed_lines, int reversed_lines_length);
 
 char buf[512];
 
@@ -25,7 +25,7 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
         curr_lines_read++;
         if (curr_lines_read == num_lines) {
             int *reversed_lines = malloc(sizeof(char) * lines_read_size);
-            reverse_lines(reversed_lines);
+            reverse_lines(lines_read, reversed_lines, lines_read_length);
         }
   }
   if (n < 0) {
@@ -37,8 +37,10 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
 }
 
 
-void reverse_lines(int* reversed_lines) {
-    for 
+void reverse_lines(int* lines_read, int* reversed_lines, int reversed_lines_length) {
+    for (int i = reversed_lines_length - 1; i >= 0; i--) {
+        
+    }
 }
 
 
