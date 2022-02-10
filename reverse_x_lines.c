@@ -2,13 +2,15 @@
 #include "stat.h"
 #include "user.h"
 
+void reverse_lines(int* reversed_lines);
+
 char buf[512];
 
 // change it to is_palindrome functon
 // check whether x lines form a palindrome 
 void reverse_x_lines(int fd, char *name, int num_lines) {
   int lines_read_size = 512;
-  int lines_read_length 
+  int lines_read_length = 0;
   int *lines_read = malloc(sizeof(char) * lines_read_size);
   lines_read = lines_read;
   int curr_lines_read = 0;
@@ -17,10 +19,14 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
 
   while ((n = read(fd, buf, sizeof(buf))) > 0) {
     for (i = 0; i < n; i++) {
-
+      lines_read_length++;
+      lines_read[lines_read_length] = buf[i];
       if (buf[i] == '\n')
         curr_lines_read++;
-        // if (curr_lines_read == )
+        if (curr_lines_read == num_lines) {
+            int *reversed_lines = malloc(sizeof(char) * lines_read_size);
+            reverse_lines(reversed_lines);
+        }
   }
   if (n < 0) {
     printf(1, "reverse_x_lines: read error\n");
@@ -28,6 +34,11 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
   }
 }
   printf(1, "%d\n", num_lines);
+}
+
+
+void reverse_lines(int* reversed_lines) {
+    for 
 }
 
 
