@@ -4,6 +4,7 @@
 
 char buf[512];
 
+// change it to is_palindrome function
 void reverse_x_lines(int fd, char *name) {
   int lines_read_length = 512;
   int *lines_read = malloc(sizeof(char) * lines_read_length);
@@ -21,14 +22,14 @@ void reverse_x_lines(int fd, char *name) {
     printf(1, "reverse_x_lines: read error\n");
     exit();
   }
-  printf(1, "%d\n", curr_lines_read);
 }
+  printf(1, "%d\n", curr_lines_read);
 }
 
 
 int main(int argc, char *argv[]) {
   int fd, i;
-
+  int num_lines_to_reverse
   if (argc <= 1) {
     reverse_x_lines(0, "");
     exit();
