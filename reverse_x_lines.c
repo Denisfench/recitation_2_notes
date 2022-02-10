@@ -76,8 +76,11 @@ void print_lines(char* lines_to_print, int length) {
 
 // we are ignoring new line characters 
 int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length) {
-    int i, j = 0;
+    int i = 0;
+    int j = 0;
     printf(1, "lines_read_length %d\n", lines_read_length);
+    printf(1, "i %d\n", i);
+    printf(1, "j %d\n", j);
     while (i < lines_read_length && j < lines_read_length) {
         printf(1, "in the while loop\n");
         if (lines_read[i] == '\n') {
