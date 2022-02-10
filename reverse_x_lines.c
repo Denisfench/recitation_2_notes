@@ -27,10 +27,10 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
 
       if (buf[i] == '\n') {
         curr_lines_read++;
-        printf(1, "%d", curr_lines_read);
+        printf(1, "%d\n", curr_lines_read);
       }
 
-      printf(1, "num_lines %d\n", num_lines);
+    //   printf(1, "num_lines %d\n", num_lines);
 
     if (curr_lines_read == num_lines) {
         printf(1, "num_lines %d", num_lines);
@@ -53,7 +53,7 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
     exit();
   }
 }
-  printf(1, "%d\n", num_lines);
+//   printf(1, "%d\n", num_lines);
 }
 }
 
