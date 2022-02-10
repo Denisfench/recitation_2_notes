@@ -31,10 +31,15 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
     if (curr_lines_read == num_lines) {
         char *reversed_lines = malloc(sizeof(char) * lines_read_size);
         reverse_lines(lines_read, reversed_lines, lines_read_length);
-        if (check_palindrome(lines_read, reversed_lines, lines_read_length))
-            printf(1, "Palindrome");
-        else printf(1, "Not a palindrome");
+        if (check_palindrome(lines_read, reversed_lines, lines_read_length)) {
+            printf(1, "Palindrome\n");
+        }
+        else {
+            printf(1, "Not a palindrome\n");
+        }
         // print_lines(reversed_lines, lines_read_length);
+        free(lines_read);
+        free(reversed_lines);
         exit();
   }
 
