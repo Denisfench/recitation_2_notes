@@ -187,6 +187,7 @@ UPROGS=\
 	_usertests\
 	_wc\
 	_zombie\
+	_reverse_x_lines\
 
 fs.img: mkfs README.md $(UPROGS)
 	./mkfs fs.img README.md $(UPROGS)
