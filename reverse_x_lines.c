@@ -4,7 +4,7 @@
 
 char buf[512];
 
-// change it to is_palindrome function
+// change it to is_palindrome functon
 // check whether x lines form a palindrome 
 void reverse_x_lines(int fd, char *name, int num_lines) {
   int lines_read_length = 512;
