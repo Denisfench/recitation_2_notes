@@ -27,13 +27,10 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
 
       if (buf[i] == '\n') {
         curr_lines_read++;
-        printf(1, "%d\n", curr_lines_read);
       }
 
-    //   printf(1, "num_lines %d\n", num_lines);
 
     if (curr_lines_read == num_lines) {
-        printf(1, "num_lines %d", num_lines);
         char *reversed_lines = malloc(sizeof(char) * lines_read_size);
         reverse_lines(lines_read, reversed_lines, lines_read_length);
         if (check_palindrome(lines_read, reversed_lines, lines_read_length)) {
@@ -42,9 +39,9 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
         else {
             printf(1, "Not a palindrome\n");
         }
-        print_lines(reversed_lines, lines_read_length);
-        printf(1, "\\\\\\n");
-        print_lines(lines_read, lines_read_length);
+        // print_lines(reversed_lines, lines_read_length);
+        // printf(1, "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n");
+        // print_lines(lines_read, lines_read_length);
         free(lines_read);
         free(reversed_lines);
         exit();
@@ -78,21 +75,14 @@ void print_lines(char* lines_to_print, int length) {
 int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length) {
     int i = 0;
     int j = 0;
-    printf(1, "lines_read_length %d\n", lines_read_length);
-    printf(1, "i %d\n", i);
-    printf(1, "j %d\n", j);
     while (i < lines_read_length && j < lines_read_length) {
-        printf(1, "in the while loop\n");
         if (lines_read[i] == '\n') {
             i++;
         }
         if (reversed_lines[j] == '\n') {
             j++;
         }
-        printf(1, "LR%c\n", lines_read[i]);
-        printf(1, "LRV%c\n", reversed_lines[j]);
         if (lines_read[i] != reversed_lines[j]) {
-            printf(1, "false");
             return 0;
         }
         i++;
