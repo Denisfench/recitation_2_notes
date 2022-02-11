@@ -122,9 +122,10 @@ int main(int argc, char *argv[]) {
   }
 
   num_lines = atoi(argv[1]);
-  
-  
-  if (argc == 2) {
+  printf(1, "The number of arguments is %d\n", argc);
+  printf(1, "The first argument is %s\n", argv[0]);
+  // pipe is not working
+  if (argc <= 2) {
     is_palindrome(0, "", num_lines);
     exit();
   }
