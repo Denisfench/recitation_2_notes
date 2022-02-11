@@ -25,8 +25,11 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
       if (lines_read_length > lines_read_size) {
         // create a new container that is twice the size of the old one 
         char *new_lines_container = malloc(2 * lines_read_size);
-        lines_read_size *= 2;
         // copy over the data from the old container
+        // void *memmove(void *dst, const void *src, uint n)
+        memmove(new_lines_container, lines_read, lines_read_size);
+        lines_read_size *= 2;
+        // deallocate the old container 
       }
 
       lines_read[lines_read_length] = buf[i];
