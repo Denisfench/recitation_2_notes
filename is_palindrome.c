@@ -2,6 +2,7 @@
 #include "stat.h"
 #include "user.h"
 
+
 void reverse_lines(char* lines_read, char* reversed_lines, int lines_length);
 void print_lines(char* lines_to_print, int length);
 int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length);
@@ -58,7 +59,7 @@ void is_palindrome(int fd, char *name, int num_lines) {
         }
         // print_lines(reversed_lines, lines_read_length);
         // printf(1, "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n");
-        print_lines(lines_read, lines_read_length);
+        // print_lines(lines_read, lines_read_length);
         free(lines_read);
         free(reversed_lines);
         exit();

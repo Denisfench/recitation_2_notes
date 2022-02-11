@@ -187,7 +187,7 @@ UPROGS=\
 	_usertests\
 	_wc\
 	_zombie\
-	_reverse_x_lines\
+	_is_palindrome\
 
 fs.img: mkfs README.md $(UPROGS)
 	./mkfs fs.img README.md test.txt $(UPROGS)
