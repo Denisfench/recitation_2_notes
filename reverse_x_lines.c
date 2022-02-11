@@ -21,9 +21,16 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
   while ((n = read(fd, buf, sizeof(buf))) > 0) {
     for (i = 0; i < n; i++) {
 
+      // resize the array if neccessary
+      if (lines_read_length > lines_read_size) {
+        // create a new container that is twice the size of the old one 
+        char *new_lines_container = malloc(2 * lines_read_size);
+      }
+
       lines_read[lines_read_length] = buf[i];
  
       lines_read_length++;
+
 
       if (buf[i] == '\n') {
         curr_lines_read++;
@@ -70,6 +77,7 @@ void print_lines(char* lines_to_print, int length) {
     for (int i = 0; i < length; i++)
         printf(1, "%c", lines_to_print[i]);
 }
+
 
 // we are ignoring new line characters 
 int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length) {
