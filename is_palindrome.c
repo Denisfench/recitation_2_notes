@@ -25,7 +25,6 @@ void is_palindrome(int fd, char *name, int num_lines) {
 
       // resize the array if neccessary
       if (lines_read_length >= lines_read_size) {
-          printf(1, "resizing the buffer");
         // create a new container that is twice the size of the old one 
         char *new_lines_container = malloc(2 * lines_read_size);
         // copy over the data from the old container
