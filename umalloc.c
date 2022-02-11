@@ -56,7 +56,7 @@ static Header *morecore(uint nu) {
   return freep;
 }
 
-void *gre(uint nbytes) {
+void *malloc(uint nbytes) {
   Header *p, *prevp;
   uint nunits;
 
