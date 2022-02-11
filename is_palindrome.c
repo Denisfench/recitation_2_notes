@@ -3,13 +3,13 @@
 #include "user.h"
 
 // This is a palindrome program
+// usage: number_of_lines_to_check filename or just the number_of_lines_to_check if reading from the standard in
 void reverse_lines(char* lines_read, char* reversed_lines, int lines_length);
 void print_lines(char* lines_to_print, int length);
 int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length);
 char buf[512];
 
 // grep some_pattern *file_extencion 
-
 
 void is_palindrome(int fd, char *name, int num_lines) {
   int lines_read_size = 512;
