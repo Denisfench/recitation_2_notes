@@ -123,6 +123,7 @@ int main(int argc, char *argv[]) {
 
   num_lines = atoi(argv[1]);
   
+  
   if (argc == 2) {
     is_palindrome(0, "", num_lines);
     exit();
