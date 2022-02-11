@@ -2,7 +2,7 @@
 #include "stat.h"
 #include "user.h"
 
-
+// This is a palindrome program
 void reverse_lines(char* lines_read, char* reversed_lines, int lines_length);
 void print_lines(char* lines_to_print, int length);
 int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length);
