@@ -190,7 +190,7 @@ UPROGS=\
 	_is_palindrome\
 
 fs.img: mkfs README.md $(UPROGS)
-	./mkfs fs.img README.md test.txt $(UPROGS)
+	./mkfs fs.img README.md test.txt somefile.txt $(UPROGS)
 
 -include *.d
 
