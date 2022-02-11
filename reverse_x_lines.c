@@ -7,10 +7,10 @@ void print_lines(char* lines_to_print, int length);
 int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length);
 char buf[512];
 
-// change it to is_palindrome functon
-// check whether x lines form a palindrome 
-// add dynamic memeory allocation 
-void reverse_x_lines(int fd, char *name, int num_lines) {
+// grep some_pattern *file_extencion 
+
+
+void is_palindrome(int fd, char *name, int num_lines) {
   int lines_read_size = 512;
   int lines_read_length = 0;
   char *lines_read = malloc(sizeof(char) * lines_read_size);
@@ -19,10 +19,11 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
 
 
   while ((n = read(fd, buf, sizeof(buf))) > 0) {
+
     for (i = 0; i < n; i++) {
 
       // resize the array if neccessary
-      if (lines_read_length > lines_read_size) {
+      if (lines_read_length >= lines_read_size) {
           printf(1, "resizing the buffer");
         // create a new container that is twice the size of the old one 
         char *new_lines_container = malloc(2 * lines_read_size);
@@ -57,14 +58,14 @@ void reverse_x_lines(int fd, char *name, int num_lines) {
         }
         // print_lines(reversed_lines, lines_read_length);
         // printf(1, "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n");
-        // print_lines(lines_read, lines_read_length);
+        print_lines(lines_read, lines_read_length);
         free(lines_read);
         free(reversed_lines);
         exit();
   }
 
   if (n < 0) {
-    printf(1, "reverse_x_lines: read error\n");
+    printf(1, "is_palindrome: read error\n");
     exit();
   }
 }
@@ -122,16 +123,16 @@ int main(int argc, char *argv[]) {
   num_lines = atoi(argv[1]);
   
   if (argc == 2) {
-    reverse_x_lines(0, "", num_lines);
+    is_palindrome(0, "", num_lines);
     exit();
   }
 
   for (i = 2; i < argc; i++) {
     if ((fd = open(argv[i], 0)) < 0) {
-      printf(2, "reverse_x_lines: cannot open %s\n", argv[i]);
+      printf(2, "is_palindrome: cannot open %s\n", argv[i]);
       exit();
     }
-    reverse_x_lines(fd, argv[i], num_lines);
+    is_palindrome(fd, argv[i], num_lines);
     close(fd);
   }
   exit();
