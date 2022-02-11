@@ -91,6 +91,8 @@ void print_lines(char* lines_to_print, int length) {
 
 
 // we are ignoring new line characters 
+// 0 false 
+// 1 true
 int check_palindrome(char* lines_read, char* reversed_lines, int lines_read_length) {
     int i = 0;
     int j = 0;
