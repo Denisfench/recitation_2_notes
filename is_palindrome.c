@@ -5,6 +5,8 @@
 // This is a palindrome program
 // usage: number_of_lines_to_check filename or just the number_of_lines_to_check
 // if reading from the standard in
+// Example file: is_palindrome 7 test.txt 
+// Example pipe: cat test.txt | is_palindrome 7 
 void reverse_lines(char *lines_read, char *reversed_lines, int lines_length);
 void print_lines(char *lines_to_print, int length);
 int check_palindrome(char *lines_read, char *reversed_lines,
